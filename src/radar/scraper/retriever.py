@@ -45,9 +45,11 @@ class Retriever():
             raise
         return path
     
-    def getListOfImages(self):
+    def getListOfImages(self,region_list = []):
         image_list = []
-        for i in self.regions:
+        if len(region_list) == 0:
+            region_list = self.regions
+        for i in region_list:
             filename = self.getTimeStamp() + '_r8' + i + '.gif'
             url = self.baseurl + filename
             path=''
@@ -59,8 +61,9 @@ class Retriever():
                 pass
             
         return image_list
-    
 
+
+        
     
 
 def main():

@@ -9,7 +9,7 @@ from scraper import retriever
 if __name__ == '__main__':
 
     ret = retriever.Retriever()
-    list_image = ret.getListOfImages()
+    list_image = ret.getListOfImages(['ma'])
     list_radars = []
     for i in list_image:
         radar = compositor.RadarRegional(i)
