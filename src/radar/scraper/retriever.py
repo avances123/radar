@@ -54,6 +54,7 @@ class Retriever():
             try:
                 path = self.saveImage(self.getRawImage(url),filename)
                 image_list.append(path)
+                print 'Exito bajando: ' + path
             except:
                 pass
             
