@@ -5,7 +5,7 @@ Created on 24/10/2010
 '''
 from compositor import compositor
 from scraper import retriever
-
+import numpy
 
 if __name__ == '__main__':
 
@@ -15,7 +15,7 @@ if __name__ == '__main__':
     for i in list_image:
         radar = compositor.RadarRegional(i)
         data = radar.getDataAsArray(i)
+        print 'Tamanio de la banda: ' + str(data.shape)
         print data
+        radar.getHistogram('/home/fabio/meteologica/tiffs/predicciones500-alarmaicona-20100513-d0.tiff')
         list_radars.append(radar)
-        print "Imagen " + radar.image + "  (" + str(radar.rows) + "," + str(radar.cols) + ")"
-        print "Imagen " + radar.image + "  Numero de bandas: "+ str(radar.bands)

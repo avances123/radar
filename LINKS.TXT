@@ -1,1 +1,2 @@
 Doc GDAL y Python http://www.gis.usu.edu/~chrisg/python/  
+GDAL y Pthon http://trac.osgeo.org/gdal/wiki/GdalOgrInPython

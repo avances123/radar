@@ -70,11 +70,28 @@ class RadarRegional(object):
             band = dataset.GetRasterBand(1)
             #scanline = inband.ReadAsArray(0, i, inband.XSize, 1, inband.XSize, 1)
             #def ReadAsArray(self, xoff=0, yoff=0, win_xsize=None, win_ysize=None,buf_xsize=None, buf_ysize=None, buf_obj=None):
-            data = band.ReadAsArray(0, 0, band.XSize, 1, band.XSize, 1)
-            #data = None
+            data = band.ReadAsArray(0, 0, band.XSize, band.YSize, band.XSize, band.YSize)
         except:
             pass
         return data
+    
+    # No la uso
+    def getHistogram(self,path):
+        try:
+            dataset = self.getDataSet(path)
+            band = dataset.GetRasterBand(1)
+            hist = band.GetDefaultHistogram(force = 0)
+            if hist is None:
+                print('No default histogram.')
+            else:
+                print('Default Histogram:')
+                print('Min: ', hist[0])
+                print('Max: ', hist[1])
+                print('Buckets: ', hist[2])
+                print('Histogram: ', hist[3])
+
+        except:
+            pass
 
 if __name__ == '__main__':
     pass
