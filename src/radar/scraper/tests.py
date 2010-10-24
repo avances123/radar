@@ -3,7 +3,7 @@ Created on 24/10/2010
 
 @author: fabio
 '''
-import unittest
+from unittest import TestCase
 from retriever import Retriever
 from urllib2 import URLError
 
@@ -50,4 +50,5 @@ class Test(TestCase):
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
+    import unittest
     unittest.main()

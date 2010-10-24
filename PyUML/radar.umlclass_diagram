@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmlns:uml2tools.notation="http://www.eclipse.org/mdt/uml2tools/gmf/notation/ext/2008" xmi:id="_3Rn3kN-SEd-zi40xmVL8zg" type="UMLClass" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_i3DhwN-bEd-DzK5woS49OQ" type="2014" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_i3HMIN-bEd-DzK5woS49OQ" type="5020"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_i3HMId-bEd-DzK5woS49OQ" type="5041"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_i3JoYN-bEd-DzK5woS49OQ" type="7032" collapsed="true">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_i3JoYd-bEd-DzK5woS49OQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_i3JoYt-bEd-DzK5woS49OQ"/>
+      <styles xmi:type="notation:CanonicalStyle" xmi:id="_i3KPcN-bEd-DzK5woS49OQ"/>
+    </children>
+    <element xmi:type="uml:Model" href="radar.uml#_2tTpkd-SEd-zi40xmVL8zg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_i3Dhwd-bEd-DzK5woS49OQ"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_i3LdkN-bEd-DzK5woS49OQ" type="2002" fontName="Ubuntu">
+    <children xmi:type="notation:DecorationNode" xmi:id="_i3MEoN-bEd-DzK5woS49OQ" type="5004"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_i3MrsN-bEd-DzK5woS49OQ" type="7010">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_i3Mrsd-bEd-DzK5woS49OQ" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_i3Mrst-bEd-DzK5woS49OQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_i3Mrs9-bEd-DzK5woS49OQ"/>
+      <styles xmi:type="notation:CanonicalStyle" xmi:id="_i3MrtN-bEd-DzK5woS49OQ"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_i3QWEN-bEd-DzK5woS49OQ" type="7011">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_i3QWEd-bEd-DzK5woS49OQ" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_i3QWEt-bEd-DzK5woS49OQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_i3QWE9-bEd-DzK5woS49OQ"/>
+      <styles xmi:type="notation:CanonicalStyle" xmi:id="_i3QWFN-bEd-DzK5woS49OQ"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_i3QWFd-bEd-DzK5woS49OQ" type="7012">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_i3QWFt-bEd-DzK5woS49OQ" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_i3QWF9-bEd-DzK5woS49OQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_i3QWGN-bEd-DzK5woS49OQ"/>
+      <styles xmi:type="notation:CanonicalStyle" xmi:id="_i3QWGd-bEd-DzK5woS49OQ"/>
+    </children>
+    <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_i3Ldkd-bEd-DzK5woS49OQ"/>
+    <element xmi:type="uml:Package" href="radar.uml#_21eHEN-SEd-zi40xmVL8zg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_i3Ldkt-bEd-DzK5woS49OQ" x="160" width="231" height="231"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_3Rn3kd-SEd-zi40xmVL8zg"/>
   <styles xmi:type="uml2tools.notation:U2TDiagramCanonicalStyle" xmi:id="_3Rn3kt-SEd-zi40xmVL8zg"/>
   <styles xmi:type="notation:FilteringStyle" xmi:id="_3Rn3k9-SEd-zi40xmVL8zg"/>
