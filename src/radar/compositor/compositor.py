@@ -5,6 +5,7 @@ Created on 24/10/2010
 '''
 
 from osgeo import gdal, gdal_array
+gdal.TermProgress = gdal.TermProgress_nocb
 from osgeo.gdalconst import GA_ReadOnly
 import numpy
 
