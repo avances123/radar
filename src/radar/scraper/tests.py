@@ -8,7 +8,10 @@ from retriever import Retriever
 from urllib2 import URLError
 
 
-class Test(unittest.TestCase):
+class Test(TestCase):
+    """
+     # PyUML: Do not remove this line! # XMI_ID:_210sYd-SEd-zi40xmVL8zg
+    """
 
 
     def testDescarga10minMadrid(self):

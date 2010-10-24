@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_2tTpkd-SEd-zi40xmVL8zg" name="radar">
+  <packagedElement xmi:type="uml:Package" xmi:id="_21eHEN-SEd-zi40xmVL8zg" name="radar">
+    <packagedElement xmi:type="uml:Package" xmi:id="_21y3MN-SEd-zi40xmVL8zg" name="compositor"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_210sYN-SEd-zi40xmVL8zg" name="scraper">
+      <packagedElement xmi:type="uml:Class" xmi:id="_210sYd-SEd-zi40xmVL8zg" name="Test">
+        <ownedOperation xmi:id="_2192UN-SEd-zi40xmVL8zg" name="testGrabaImagenEnTmp">
+          <ownedParameter xmi:id="_22EkAN-SEd-zi40xmVL8zg" name="self">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_22JcgN-SEd-zi40xmVL8zg">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_22Jcgd-SEd-zi40xmVL8zg" name="testDescarga10minMadrid">
+          <ownedParameter xmi:id="_22KDkN-SEd-zi40xmVL8zg" name="self">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_22KDkd-SEd-zi40xmVL8zg">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_22KDkt-SEd-zi40xmVL8zg" name="testDescarga20minMadrid">
+          <ownedParameter xmi:id="_22KDk9-SEd-zi40xmVL8zg" name="self">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_22KDlN-SEd-zi40xmVL8zg">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_22KqoN-SEd-zi40xmVL8zg" name="testDescarga20minValencia">
+          <ownedParameter xmi:id="_22Kqod-SEd-zi40xmVL8zg" name="self">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_22Kqot-SEd-zi40xmVL8zg">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_22LRsN-SEd-zi40xmVL8zg" name="Retriever">
+        <ownedAttribute xmi:id="_22O8Et-SEd-zi40xmVL8zg" name="regions">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_22O8E9-SEd-zi40xmVL8zg" value="regions"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_22PjIN-SEd-zi40xmVL8zg" name="baseurl">
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_22PjId-SEd-zi40xmVL8zg" value="baseurl"/>
+        </ownedAttribute>
+        <ownedOperation xmi:id="_22LRsd-SEd-zi40xmVL8zg" name="saveImage">
+          <ownedParameter xmi:id="_22LRst-SEd-zi40xmVL8zg" name="self">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_22LRs9-SEd-zi40xmVL8zg">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedParameter>
+          <ownedParameter xmi:id="_22L4wN-SEd-zi40xmVL8zg" name="stream">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_22L4wd-SEd-zi40xmVL8zg">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedParameter>
+          <ownedParameter xmi:id="_22L4wt-SEd-zi40xmVL8zg" name="filename">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_22L4w9-SEd-zi40xmVL8zg" value="'test.gif'"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_22L4xN-SEd-zi40xmVL8zg" name="folder">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_22L4xd-SEd-zi40xmVL8zg" value="'/home/fabio/radar/img'"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_22Mf0N-SEd-zi40xmVL8zg" name="getRawImage">
+          <ownedParameter xmi:id="_22Mf0d-SEd-zi40xmVL8zg" name="self">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_22Mf0t-SEd-zi40xmVL8zg">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedParameter>
+          <ownedParameter xmi:id="_22Mf09-SEd-zi40xmVL8zg" name="url">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_22Mf1N-SEd-zi40xmVL8zg">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_22NG4N-SEd-zi40xmVL8zg" name="__init__" visibility="private">
+          <ownedParameter xmi:id="_22NG4d-SEd-zi40xmVL8zg" name="self">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_22NG4t-SEd-zi40xmVL8zg">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedParameter>
+          <ownedParameter xmi:id="_22NG49-SEd-zi40xmVL8zg" name="baseurl">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_22Nt8N-SEd-zi40xmVL8zg" value="'http://www.aemet.es/imagenes_d/eltiempo/observacion/radar/'"/>
+          </ownedParameter>
+          <ownedParameter xmi:id="_22Nt8d-SEd-zi40xmVL8zg" name="regions">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_22Nt8t-SEd-zi40xmVL8zg" value="&quot;??unknown??&quot;"/>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_22Nt89-SEd-zi40xmVL8zg" name="getListOfImages">
+          <ownedParameter xmi:id="_22Nt9N-SEd-zi40xmVL8zg" name="self">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_22OVAN-SEd-zi40xmVL8zg">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedParameter>
+        </ownedOperation>
+        <ownedOperation xmi:id="_22OVAd-SEd-zi40xmVL8zg" name="getTimeStamp">
+          <ownedParameter xmi:id="_22OVAt-SEd-zi40xmVL8zg" name="self">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_22OVA9-SEd-zi40xmVL8zg">
+              <value xsi:nil="true"/>
+            </defaultValue>
+          </ownedParameter>
+          <ownedParameter xmi:id="_22O8EN-SEd-zi40xmVL8zg" name="delay">
+            <defaultValue xmi:type="uml:LiteralString" xmi:id="_22O8Ed-SEd-zi40xmVL8zg" value="30"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+  <profileApplication xmi:id="_2wv_IN-SEd-zi40xmVL8zg">
+    <eAnnotations xmi:id="_2w-BkN-SEd-zi40xmVL8zg" source="http://www.eclipse.org/uml2/2.0.0/UML"/>
+    <appliedProfile href="PyUMLProfile.uml#_7Y-UAKi8Edyr_pXRyLU3wA"/>
+  </profileApplication>
+</uml:Model>

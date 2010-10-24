@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmi:id="_7Y-UAKi8Edyr_pXRyLU3wA" name="PyUMLProfile" metaclassReference="_ZtOxIKjHEdym48zZ96s2nA" metamodelReference="_bkzWwKjHEdym48zZ96s2nA">
+  <eAnnotations xmi:id="_oyijYKjHEdym48zZ96s2nA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_bm4k8KjIEdym48zZ96s2nA" name="PyUMLProfile" nsURI="http:///schemas/PyUMLProfile/_bm06kKjIEdym48zZ96s2nA/1" nsPrefix="PyUMLProfile">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_bm4k8ajIEdym48zZ96s2nA" name="BeanClass">
+        <eAnnotations xmi:id="_bm4k8qjIEdym48zZ96s2nA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_e8aLwKjHEdym48zZ96s2nA"/>
+        <eAnnotations xmi:id="_bm4k86jIEdym48zZ96s2nA" source="duplicates">
+          <contents xmi:type="ecore:EReference" xmi:id="_bm4k9KjIEdym48zZ96s2nA" name="base_Class" ordered="false" lowerBound="1">
+            <eAnnotations xmi:id="_bm4k9ajIEdym48zZ96s2nA" source="redefines" references="_bm4k-ajIEdym48zZ96s2nA"/>
+            <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
+          </contents>
+        </eAnnotations>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_bm4k96jIEdym48zZ96s2nA" name="TestProperty" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        </eStructuralFeatures>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_bm4k-ajIEdym48zZ96s2nA" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+    </contents>
+    <contents xmi:type="ecore:EPackage" xmi:id="_oyjKcKjHEdym48zZ96s2nA" name="PyUMLProfile" nsURI="http:///schemas/PyUMLProfile/_oyfgEKjHEdym48zZ96s2nA/0" nsPrefix="PyUMLProfile">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_oyjKcajHEdym48zZ96s2nA" name="BeanClass">
+        <eAnnotations xmi:id="_oyjKcqjHEdym48zZ96s2nA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_e8aLwKjHEdym48zZ96s2nA"/>
+      </eClassifiers>
+    </contents>
+  </eAnnotations>
+  <elementImport xmi:id="_ZtOxIKjHEdym48zZ96s2nA">
+    <importedElement xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+  </elementImport>
+  <packageImport xmi:id="_bkzWwKjHEdym48zZ96s2nA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_e8aLwKjHEdym48zZ96s2nA" name="BeanClass">
+    <ownedAttribute xmi:id="_OAXE4KjIEdym48zZ96s2nA" name="base_Class">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="_S_NkgKjIEdym48zZ96s2nA" name="base_Class" association="_S_MWYKjIEdym48zZ96s2nA">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_S_MWYKjIEdym48zZ96s2nA" name="Class_BeanClass" memberEnd="_S_M9cKjIEdym48zZ96s2nA _S_NkgKjIEdym48zZ96s2nA">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_S_M9cKjIEdym48zZ96s2nA" name="extension_BeanClass" type="_e8aLwKjHEdym48zZ96s2nA" aggregation="composite" association="_S_MWYKjIEdym48zZ96s2nA"/>
+  </packagedElement>
+</uml:Profile>

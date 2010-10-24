@@ -6,6 +6,9 @@ import os
 
 
 class Retriever():
+    """
+     # PyUML: Do not remove this line! # XMI_ID:_22LRsN-SEd-zi40xmVL8zg
+    """
 
     def __init__(self,
                  baseurl = 'http://www.aemet.es/imagenes_d/eltiempo/observacion/radar/',
