@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 from datetime import datetime,timedelta
+from urllib2 import URLError
 import urllib2
 import os
-from urllib2 import URLError
+
 
 
 def getTimeStamp(delay=30):
