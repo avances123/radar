@@ -4,6 +4,7 @@ from urllib2 import URLError
 import urllib2
 import os
 
+
 class Retriever():
 
     def __init__(self,
@@ -23,35 +24,47 @@ class Retriever():
         timestamp = timestamp - d
         return timestamp.strftime("%Y%m%d%H%M")
     
-    def getImage(self,url):
+    def getRawImage(self,url):
         try:
             imgData = urllib2.urlopen(url).read()
         except URLError:
             raise
         return imgData
     
-    def saveImage(self,stream,filename,folder = '/home/fabio/radar/img'):
+    
+    def saveImage(self,stream,filename = 'test.gif',folder = '/home/fabio/radar/img'):
+        path = os.path.join(folder, filename)
         try:
-            output = open(os.path.join(folder, filename), 'wb')
+            output = open(path, 'wb')
             output.write(stream)
             output.close()
-        except:
-            pass
+        except Exception:
+            raise
+        return path
+    
+    def getListOfImages(self):
+        image_list = []
+        for i in self.regions:
+            filename = self.getTimeStamp() + '_r8' + i + '.gif'
+            url = self.baseurl + filename
+            path=''
+            try:
+                path = self.saveImage(self.getRawImage(url),filename)
+                image_list.append(path)
+            except:
+                pass
+            
+        return image_list
+    
 
     
 
 def main():
          
     retriever = Retriever()
-    for i in retriever.regions:
-        filename = retriever.getTimeStamp() + '_r8' + i + '.gif'
-        url = retriever.baseurl + filename
-        try:
-            imgData = retriever.getImage(url)
-            retriever.saveImage(imgData, filename)
-            print str(datetime.now()) + " Exito bajando " + url
-        except Exception,e:
-            print str(datetime.now()) + " Error bajando " + url + ':' + str(e.code)
+    list = retriever.getListOfImages()
+    for i in list:
+        print i
 
 if __name__ == '__main__':
     main()

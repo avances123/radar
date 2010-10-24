@@ -15,7 +15,7 @@ class Test(unittest.TestCase):
         retriever = Retriever()
         url = retriever.baseurl + retriever.getTimeStamp(10) + '_r8' + 'ma' + '.gif'
         try:
-            retriever.getImage(url)
+            retriever.getRawImage(url)
         except URLError,e:
             self.fail('Codigo ' + str(e.code) + ': ' + url)
             
@@ -23,7 +23,7 @@ class Test(unittest.TestCase):
         retriever = Retriever()
         url = retriever.baseurl + retriever.getTimeStamp(10) + '_r8' + 'ma' + '.gif'
         try:
-            retriever.getImage(url)
+            retriever.getRawImage(url)
         except URLError,e:
             self.fail('Codigo ' + str(e.code) + ': ' + url)
             
@@ -31,11 +31,19 @@ class Test(unittest.TestCase):
         retriever = Retriever()
         url = retriever.baseurl + retriever.getTimeStamp(20) + '_r8' + 'va' + '.gif'
         try:
-            retriever.getImage(url)
+            retriever.getRawImage(url)
         except URLError,e:
             self.fail('Codigo ' + str(e.code) + ': ' + url)
         
-
+    def testGrabaImagenEnTmp(self):
+        retriever = Retriever()
+        filename = retriever.getTimeStamp(20) + '_r8' + 'ma' + '.gif'
+        url = retriever.baseurl + filename
+        try:
+            retriever.saveImage(retriever.getRawImage(url),folder = '/tmp/')
+        except Exception,e:
+            self.fail(e)
+            
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
