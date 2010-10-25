@@ -152,7 +152,7 @@ class mosaic_info:
 
         fhInputTile = self.cache.get(imgLocation)
 
-        self.bands = fhInputTile.RasterCount
+        self.num_bands = fhInputTile.RasterCount
         self.band_type = fhInputTile.GetRasterBand(1).DataType
         self.projection = fhInputTile.GetProjection()
 
@@ -214,7 +214,7 @@ class mosaic_info:
         resultSizeX =int(math.ceil(((maxx-minx) / self.scaleX )))
         resultSizeY =int(math.ceil(((miny-maxy) / self.scaleY )))
 
-        resultDS = self.TempDriver.Create( "TEMP", resultSizeX, resultSizeY, self.bands,self.band_type,[])
+        resultDS = self.TempDriver.Create( "TEMP", resultSizeX, resultSizeY, self.num_bands,self.band_type,[])
         resultDS.SetGeoTransform( [minx,self.scaleX,0,maxy,0,self.scaleY] )
 
 
@@ -243,7 +243,7 @@ class mosaic_info:
 
 #            print "READ",readOffsetX,readOffsetY,readX,readY
 
-            for bandNr in range(1,self.bands+1):
+            for bandNr in range(1,self.num_bands+1):
                 s_band = sourceDS.GetRasterBand( bandNr )
                 t_band = resultDS.GetRasterBand( bandNr )
                 if self.ct is not None:
@@ -261,7 +261,7 @@ class mosaic_info:
     def report( self ):
         print('Filename: '+ self.filename)
         print('File Size: %dx%dx%d' \
-              % (self.xsize, self.ysize, self.bands))
+              % (self.xsize, self.ysize, self.num_bands))
         print('Pixel Size: %f x %f' \
               % (self.scaleX,self.scaleY))
         print('UL:(%f,%f)   LR:(%f,%f)' \
@@ -414,7 +414,7 @@ def createPyramidTile(levelMosaicInfo, offsetX, offsetY, width, height,tileName,
     geotransform = [dec.ulx, dec.scaleX, 0,dec.uly,0,dec.scaleY]
 
 
-    bands = levelMosaicInfo.bands
+    bands = levelMosaicInfo.num_bands
 
     if MemDriver is None:
         t_fh = Driver.Create( tileName, width, height, bands,bt,CreateOptions)
@@ -484,7 +484,7 @@ def createTile( minfo, offsetX,offsetY,width,height, tilename,OGRDS):
 
 
 
-    bands = minfo.bands
+    bands = minfo.num_bands
 
     if MemDriver is None:
         t_fh = Driver.Create( tilename, width, height, bands,bt,CreateOptions)

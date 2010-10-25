@@ -136,7 +136,7 @@ class file_info:
             return 0
 
         self.filename = filename
-        self.bands = fh.RasterCount
+        self.num_bands = fh.RasterCount
         self.xsize = fh.RasterXSize
         self.ysize = fh.RasterYSize
         self.band_type = fh.GetRasterBand(1).DataType
@@ -158,7 +158,7 @@ class file_info:
     def report( self ):
         print('Filename: '+ self.filename)
         print('File Size: %dx%dx%d' \
-              % (self.xsize, self.ysize, self.bands))
+              % (self.xsize, self.ysize, self.num_bands))
         print('Pixel Size: %f x %f' \
               % (self.geotransform[1],self.geotransform[5]))
         print('UL:(%f,%f)   LR:(%f,%f)' \
@@ -422,7 +422,7 @@ def main( argv=None ):
         if separate != 0:
             bands = len(file_infos)
         else:
-            bands = file_infos[0].bands
+            bands = file_infos[0].num_bands
 
         t_fh = Driver.Create( out_file, xsize, ysize, bands,
                               band_type, create_options )
@@ -439,10 +439,10 @@ def main( argv=None ):
         if separate != 0:
             bands = len(file_infos)
             if t_fh.RasterCount < bands :
-                print('Existing output file has less bands than the number of input files. You should delete it before. Terminating gdal_merge.')
+                print('Existing output file has less num_bands than the number of input files. You should delete it before. Terminating gdal_merge.')
                 sys.exit( 1 )
         else:
-            bands = min(file_infos[0].bands,t_fh.RasterCount)
+            bands = min(file_infos[0].num_bands,t_fh.RasterCount)
 
     # Do we need to pre-initialize the whole mosaic file to some value?
     if pre_init is not None:
