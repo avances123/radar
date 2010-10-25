@@ -77,7 +77,6 @@ class RadarRegional(object):
         print('Projection '  + self.projection)
         print('Band Type: '  + str(self.band_type))
         
-        
     def dumpToGeoTiff(self,newfile):
         """
         Graba en un GeoTiff el radar regional
@@ -86,8 +85,9 @@ class RadarRegional(object):
         """
         # Callback para el proceso
         def progress_cb( complete, message, cb_data ):
-            print('%s %d' % (cb_data, complete))
-            
+            #print('%s %d' % (cb_data, complete))
+            pass
+        
         geotiff = gdal.GetDriverByName("GTiff")
         if geotiff is None:
             print('GeoTIFF driver not registered.')
