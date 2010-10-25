@@ -3,6 +3,10 @@ from datetime import datetime,timedelta
 from urllib2 import URLError
 import urllib2
 import os,subprocess
+import logging
+from logger import *
+
+
 
 REGIONS = ['co', 'sa', 'ss', 'vd', 'za', 'ba', 'ma', 'cc', 'va', 'mu', 'se', 'ml', 'am', 'pm', 'ca']
 BASEURL = 'http://www.aemet.es/imagenes_d/eltiempo/observacion/radar/'
@@ -12,11 +16,12 @@ DEFAULT_DELAY=10
 
 
 class Retriever():
-    
 
     def __init__(self,baseurl = BASEURL,regions = REGIONS):
         self.baseurl = baseurl
-        self.regions = regions 
+        self.regions = regions
+        self.log = ColoredLogger('Retriever')
+        self.log.setLevel(logging.DEBUG)
 
     
     def __getTimeStamp(self,delay = DEFAULT_DELAY):
@@ -38,15 +43,17 @@ class Retriever():
             try:
                 #retcode = subprocess.call(["ln", "-s", origwld_path, currentwld_path])
                 subprocess.call(["ln", "-sf", origwld_path, currentwld_path])
-            except:
-                raise
+                self.log.debug('ln -sf ' + origwld_path + ' ' + currentwld_path)
+            except Exception,e:
+                print str(e)
+                raise e
     
     
     def downloadImages(self, regions = REGIONS):
  
         image_list = []
         
-        print "Descargando imagenes"
+        self.log.info("Downloading images...")
         for i in regions:
             filename = self.__getTimeStamp() + '_r8' + i + '.gif'
             url = self.baseurl + filename
@@ -55,17 +62,18 @@ class Retriever():
                 rawdata = urllib2.urlopen(url).read()
             except URLError,e:
                 # Aqui viene el 404 Handler
-                print "Fallo al bajar: " + url + ' Codigo: ' + str(e.code)
+                self.log.warning("Download error: " + url + ' Code: ' + str(e.code))
                 continue
             try:
                 output = open(path, 'wb')
                 output.write(rawdata)
                 output.close()
                 image_list.append([path,i])
-                print url + '  ->  ' + path
+                self.log.debug(url + '  ->  ' + path)
             except:
                 pass
-            
+        
+        self.log.info("Doing .wld links for the images...")
         self.__linkWldToGif(image_list)
             
         return image_list
@@ -73,7 +81,7 @@ class Retriever():
 
 if __name__ == '__main__':
     retriever = Retriever()
-    image_list = retriever.downloadImages(['ma'])
+    image_list = retriever.downloadImages()
     for i in image_list:
         print i
     

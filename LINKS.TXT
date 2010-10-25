@@ -1,3 +1,4 @@
 Doc GDAL y Python http://www.gis.usu.edu/~chrisg/python/  
 GDAL y Pthon http://trac.osgeo.org/gdal/wiki/GdalOgrInPython
 proyeccion de los wld http://spatialreference.org/ref/sr-org/6998/
+logging http://docs.python.org/library/logging.html#logging-tutorial
