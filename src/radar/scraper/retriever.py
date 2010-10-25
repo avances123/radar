@@ -13,6 +13,8 @@ WLDDIR = '/home/fabio/workspace/radar/wld'
 class Retriever():
     """
      # PyUML: Do not remove this line! # XMI_ID:_22LRsN-SEd-zi40xmVL8zg
+     
+     Acepta una lista de regiones 
     """
 
     def __init__(self,baseurl = BASEURL,regions = REGIONS):
