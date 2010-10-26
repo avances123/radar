@@ -23,6 +23,8 @@ class Retriever():
         self.log = ColoredLogger('Retriever')
         self.log.setLevel(logging.DEBUG)
 
+    def __getFilenameStr(self,region):
+        pass
     
     def __getTimeStamp(self,delay = DEFAULT_DELAY):
         timestamp = datetime.utcnow()
