@@ -10,8 +10,8 @@ from logger import *
 
 REGIONS = ['co', 'sa', 'ss', 'vd', 'za', 'ba', 'ma', 'cc', 'va', 'mu', 'se', 'ml', 'am', 'pm', 'ca']
 BASEURL = 'http://www.aemet.es/imagenes_d/eltiempo/observacion/radar/'
-IMG_DIR = '/home/fabio/radar/img'
-WLD_DIR = '/home/fabio/workspace/radar/wld'
+IMG_DIR = '/home/fabio/radar/img/'
+WLD_DIR = '/home/fabio/radar/wld/'
 DEFAULT_DELAY=10
 
 
