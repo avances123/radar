@@ -68,11 +68,12 @@ class Retriever():
                 output = open(path, 'wb')
                 output.write(rawdata)
                 output.close()
-                image_list.append([path,i])
                 self.log.debug(url + '  ->  ' + path)
             except Exception,e:
                 self.log.exception(str(e))
                 sys.exit(1)
+                
+            image_list.append([path,i])
         
         self.log.info("Doing .wld links for the images...")
         self.__linkWldToGif(image_list)

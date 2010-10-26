@@ -3,8 +3,8 @@ Created on 24/10/2010
 
 @author: fabio
 '''
-from compositor import compositor
-from scraper import retriever
+from radar import compositor
+from radar import retriever
 
 
 
