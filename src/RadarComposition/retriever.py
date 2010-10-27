@@ -2,7 +2,7 @@
 from datetime import datetime,timedelta
 from urllib2 import URLError
 import urllib2
-import os,subprocess
+import sys,os,subprocess
 import logging
 from logger import *
 
@@ -10,8 +10,8 @@ from logger import *
 
 REGIONS = ['co', 'sa', 'ss', 'vd', 'za', 'ba', 'ma', 'cc', 'va', 'mu', 'se', 'ml', 'am', 'pm', 'ca']
 BASEURL = 'http://www.aemet.es/imagenes_d/eltiempo/observacion/radar/'
-IMG_DIR = '/home/fabio/radar/img/'
-WLD_DIR = '/home/fabio/radar/wld/'
+IMG_DIR = '/home/fabio/workspace/radar/img'
+WLD_DIR = '/home/fabio/workspace/radar/wld'
 DEFAULT_DELAY=10
 
 
@@ -23,6 +23,8 @@ class Retriever():
         self.log = ColoredLogger('Retriever')
         self.log.setLevel(logging.DEBUG)
 
+    def __getFilenameStr(self,region):
+        pass
     
     def __getTimeStamp(self,delay = DEFAULT_DELAY):
         timestamp = datetime.utcnow()
@@ -45,7 +47,7 @@ class Retriever():
                 subprocess.call(["ln", "-sf", origwld_path, currentwld_path])
                 self.log.debug('ln -sf ' + origwld_path + ' ' + currentwld_path)
             except Exception,e:
-                print str(e)
+                self.log.exception(str(e))
                 raise e
     
     
@@ -68,10 +70,12 @@ class Retriever():
                 output = open(path, 'wb')
                 output.write(rawdata)
                 output.close()
-                image_list.append([path,i])
                 self.log.debug(url + '  ->  ' + path)
-            except:
-                pass
+            except Exception,e:
+                self.log.exception(str(e))
+                sys.exit(1)
+                
+            image_list.append([path,i])
         
         self.log.info("Doing .wld links for the images...")
         self.__linkWldToGif(image_list)
