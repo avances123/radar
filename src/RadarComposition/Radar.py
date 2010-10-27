@@ -1,7 +1,7 @@
 '''
 Created on 26/10/2010
 
-@author: fabio
+@author: Fabio Rueda Carrascosa
 '''
 
 class Radar(object):
