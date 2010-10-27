@@ -83,5 +83,5 @@ if __name__ == '__main__':
     retriever = Retriever()
     image_list = retriever.downloadImages()
     for i in image_list:
-        print i
+	pass
     
