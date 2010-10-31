@@ -12,7 +12,7 @@ except ImportError:
     import gdal
     from gdalconst import *
     
-import gdalnumeric
+import osgeo.gdalnumeric
 
 import sys
 from Radar import Radar
@@ -24,13 +24,10 @@ class Regional(Radar):  # Hereda de Radar
     '''
     inNoData = None
 
-    def fillData(self,inband):
-        data=[]
-        for i in range(inband.YSize - 1, -1, -1): #Desde 479 a 0 en pasos de -1
-            scanline = inband.ReadAsArray(0, i, inband.XSize, 1, inband.XSize, 1)
-            #scanline = numpy.choose( numpy.equal( scanline, inNoData),(scanline, outNoData) )
-            data.WriteArray(scanline, 0, i)
-        self.data = data   
+    def __fillArrayData(self,band):
+        self.data = band.ReadAsArray(0,0,band.Xsize,band.YSize)
+        print self.data
+    
     
     def printReport(self):
         print('Filename: '+ self.imagepath)
