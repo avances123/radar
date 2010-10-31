@@ -28,7 +28,7 @@ if __name__ == '__main__':
     retriever = Retriever()
     image_list = retriever.downloadImages(['ma'])
     for i in image_list:
-        radar = Regional(i[0],i[1]) # Hay que cambiar a diccionario
+        radar = Regional(i[0],i[1]) # Hay que cambiar a diccionario    
         print "Creado radar regional: " + radar.imagepath + '  ' + radar.region
         
         
