@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 '''
 Created on 26/10/2010
 
@@ -16,3 +18,6 @@ class Radar(object):
         '''
         self.imagepath = imagepath
         
+
+    
+    

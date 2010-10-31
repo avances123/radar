@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 from datetime import datetime,timedelta
 from urllib2 import URLError
 import urllib2
@@ -87,5 +87,5 @@ if __name__ == '__main__':
     retriever = Retriever()
     image_list = retriever.downloadImages()
     for i in image_list:
-	pass
+	       pass
     
