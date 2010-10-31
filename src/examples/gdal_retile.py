@@ -136,13 +136,13 @@ class mosaic_info:
 
     def __init__(self, filename,inputDS ):
         """
-        Initialize mosaic_info from filename
+        Initialize mosaic_info from imagepath
 
-        filename -- Name of file to read.
+        imagepath -- Name of file to read.
 
         """
         self.TempDriver=gdal.GetDriverByName("MEM")
-        self.filename = filename
+        self.imagepath = filename
         self.cache = DataSetCache()
         self.ogrTileIndexDS = inputDS
 
@@ -259,7 +259,7 @@ class mosaic_info:
 
 
     def report( self ):
-        print('Filename: '+ self.filename)
+        print('Filename: '+ self.imagepath)
         print('File Size: %dx%dx%d' \
               % (self.xsize, self.ysize, self.num_bands))
         print('Pixel Size: %f x %f' \
@@ -586,7 +586,7 @@ def buildPyramid(minfo,createdTileIndexDS,tileWidth, tileHeight):
 
     inputDS=createdTileIndexDS
     for level in range(1,Levels+1):
-        levelMosaicInfo = mosaic_info(minfo.filename,inputDS)
+        levelMosaicInfo = mosaic_info(minfo.imagepath,inputDS)
         levelOutputTileInfo = tile_info(levelMosaicInfo.xsize/2,levelMosaicInfo.ysize/2,tileWidth,tileHeight)
         inputDS=buildPyramidLevel(levelMosaicInfo,levelOutputTileInfo,level)
 
@@ -633,7 +633,7 @@ def getTileName(minfo,ti,xIndex,yIndex,level = -1):
     if (ti.countTilesY > max):
         max=ti.countTilesY
     countDigits= len(str(max))
-    parts=os.path.splitext(os.path.basename(minfo.filename))
+    parts=os.path.splitext(os.path.basename(minfo.imagepath))
     if parts[0][0]=="@" : #remove possible leading "@"
        parts = ( parts[0][1:len(parts[0])], parts[1])
 

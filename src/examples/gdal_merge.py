@@ -125,9 +125,9 @@ class file_info:
 
     def init_from_name(self, filename):
         """
-        Initialize file_info from filename
+        Initialize file_info from imagepath
 
-        filename -- Name of file to read.
+        imagepath -- Name of file to read.
 
         Returns 1 on success or 0 if the file can't be opened.
         """
@@ -135,7 +135,7 @@ class file_info:
         if fh is None:
             return 0
 
-        self.filename = filename
+        self.imagepath = filename
         self.num_bands = fh.RasterCount
         self.xsize = fh.RasterXSize
         self.ysize = fh.RasterYSize
@@ -156,7 +156,7 @@ class file_info:
         return 1
 
     def report( self ):
-        print('Filename: '+ self.filename)
+        print('Filename: '+ self.imagepath)
         print('File Size: %dx%dx%d' \
               % (self.xsize, self.ysize, self.num_bands))
         print('Pixel Size: %f x %f' \
@@ -229,7 +229,7 @@ class file_info:
             return 1
 
         # Open the source file, and copy the selected region.
-        s_fh = gdal.Open( self.filename )
+        s_fh = gdal.Open( self.imagepath )
 
         return \
             raster_copy( s_fh, sw_xoff, sw_yoff, sw_xsize, sw_ysize, s_band,

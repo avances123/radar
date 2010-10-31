@@ -30,10 +30,10 @@ class RadarRegional(object):
         """
         Crea un RadarRegional a partir de un fichero
 
-        filename -- Name of file to read.
+        imagepath -- Name of file to read.
         """
 
-        self.filename = filename
+        self.imagepath = filename
         self.region = region        
         
                      
@@ -70,7 +70,7 @@ class RadarRegional(object):
         pass
 
     def report(self):
-        print('Filename: '+ self.filename)
+        print('Filename: '+ self.imagepath)
         print('File Size: %dx%dx%d' % (self.xsize, self.ysize, self.num_bands))
         print('Pixel Size: %f x %f' % (self.geotransform[1],self.geotransform[5]))
         print('UL:(%f,%f)   LR:(%f,%f)'  % (self.ulx,self.uly,self.lrx,self.lry))
