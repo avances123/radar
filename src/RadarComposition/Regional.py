@@ -29,7 +29,7 @@ if __name__ == '__main__':
     image_dict = retriever.downloadImages(['ma'])
     for i in image_dict.iterkeys():
         radar = Regional(image_dict[i],i)
-        print "Creado radar regional: " + radar.imagepath + '  ' + radar.region
+        print "Creado radar regional: " + radar.imagepath + ' Region: ' + radar.region
         
         
         
