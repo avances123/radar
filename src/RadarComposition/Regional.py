@@ -25,8 +25,8 @@ class Regional(Radar):  # Hereda de Radar
     inNoData = None
 
     def __fillArrayData(self,band):
-        self.data = band.ReadAsArray(0,0,band.Xsize,band.YSize)
-        print self.data
+        self.data = band.ReadAsArray(0,0,self.xsize,self.ysize)
+        print self.data #(math matrix notation is [row,col], not [x,y])
     
     
     def printReport(self):
@@ -75,7 +75,7 @@ class Regional(Radar):  # Hereda de Radar
         self.lrx = self.ulx + self.geotransform[1] * self.xsize
         self.lry = self.uly + self.geotransform[5] * self.ysize
         #self.data = self.band.ReadAsArray(xOffset, yOffset, 1, 1)
-        self.fillData(self.band)
+        self.__fillArrayData(self.band)
 
         
         #Blocksizes
