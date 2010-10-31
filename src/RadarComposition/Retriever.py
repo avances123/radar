@@ -35,10 +35,10 @@ class Retriever():
         timestamp = timestamp - d
         return timestamp.strftime("%Y%m%d%H%M")
     
-    def __linkWldToGif(self,image_list):
-        for i in image_list:
-            imgpath = i[0]
-            region = i[1]
+    def __linkWldToGif(self,image_dict):
+        for i in image_dict.iterkeys():
+            imgpath = image_dict[i]
+            region = i
             origwld_path = os.path.join(WLD_DIR, 'r3-' + region +'.wld')
             currentwld_path = imgpath.replace('.gif','.wld') 
             try:
@@ -51,7 +51,7 @@ class Retriever():
     
     
     def downloadImages(self, regions = REGIONS): 
-        image_list = []        
+        image_dict = dict() # Creando un diccionario vacio       
         self.log.info("Downloading images...")
         for i in regions:
             filename = self.__getTimeStamp() + '_r8' + i + '.gif'
@@ -71,12 +71,12 @@ class Retriever():
             except Exception,e:
                 self.log.exception(str(e))
                 sys.exit(1)
-            image_list.append([path,i])
+            image_dict[i] = path  #Asigno un path a una region
         
         self.log.info("Doing .wld links for the images...")
-        self.__linkWldToGif(image_list)
+        self.__linkWldToGif(image_dict)
             
-        return image_list
+        return image_dict
 
 
 if __name__ == '__main__':
