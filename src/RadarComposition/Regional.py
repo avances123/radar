@@ -113,8 +113,18 @@ class Regional(Radar):  # Hereda de Radar
         '''
         Cambia los valores de un array de etrada seguin el mapping de valid_gifindexes
         '''
-        for i in self.valid_gifindexes.keys():
-            data = numpy.where(data == i,self.NoData,data) # Si no es un color valido, no data
+        
+        for i in range(len(data)):
+            for j in range (len(data[0])):
+                if data[i,j] in  self.valid_gifindexes:
+                    # TODO aqui se pilla el pixel valido, cambiar de valor por el valor meteologica
+                    #print "Es un pixel valido: " + str(i) + ',' + str(j)
+                    pass
+                else:
+                    #print "Es un pixel basura: " + str(i) + ',' + str(j)
+                    data[i,j] = self.NoData
+
+        #data = numpy.where(data in self.valid_gifindexes.all(),self.NoData,data) # Si no es un color valido, no data
         return data
 
   
