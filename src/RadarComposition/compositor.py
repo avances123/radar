@@ -66,7 +66,7 @@ class RadarRegional(object):
                                         warp_memory = 0.0, maxerror = 0.0 ):
         gdal.CreateAndReprojectImage(self.dataset,'reprojected.tif',self.DEFAULT_PROJ,self.LATLONG_PROJ)
         """
-       
+        
         pass
 
     def report(self):

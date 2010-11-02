@@ -15,7 +15,7 @@ except ImportError:
     
 import numpy
 
-import sys
+import subprocess,sys
 from Radar import Radar
 
 
@@ -75,10 +75,12 @@ class Regional(Radar):  # Hereda de Radar
         self.region = region        
         
                      
-        self.dataset = gdal.Open(imagepath, GA_ReadOnly)
+        #self.dataset = gdal.Open(imagepath, GA_ReadOnly)
+        self.dataset = gdal.Open(imagepath)
         if self.dataset is None:
             print('Unable to open %s' % imagepath)
             sys.exit(1)
+            
         self.driver = self.dataset.GetDriver()
         self.driver.Register()
         #print 'Driver: ' + self.driver.LongName
@@ -103,6 +105,9 @@ class Regional(Radar):  # Hereda de Radar
         #self.data = self.band.ReadAsArray(xOffset, yOffset, 1, 1)
         self.__fillArrayData(self.band)
         self.valid_gifindexes = self.__getValidColors()
+        
+        #gdal.ReprojectImage(self.dataset,self.dataset,self.DEFAULT_PROJ_WKT,self.LATLONG_PROJ)
+
 
 
 
@@ -127,6 +132,11 @@ class Regional(Radar):  # Hereda de Radar
         #data = numpy.where(data in self.valid_gifindexes.all(),self.NoData,data) # Si no es un color valido, no data
         return data
 
+
+
+
+
+
   
     def dumpToGeoTiff(self,newfile):
         """
@@ -140,7 +150,7 @@ class Regional(Radar):  # Hereda de Radar
         bandOut = dsOut.GetRasterBand(1)
         #self.data = self.band.ReadAsArray(0,0,self.xsize, self.ysize)
         bandOut.WriteArray(self.data, 0,0)
-        bandOut.SetNoDataValue(127)
+        bandOut.SetNoDataValue(self.NoData)
 
         
         # compute statistics for the output
@@ -153,7 +163,16 @@ class Regional(Radar):  # Hereda de Radar
         geotransform = [self.ulx, self.pixelWidth, 0, self.uly, 0, self.pixelHeight]
         dsOut.SetGeoTransform(geotransform)
         dsOut.SetProjection(self.projection)
-
+        '''
+        ReprojectImage(Dataset src_ds, Dataset dst_ds, char src_wkt = None, 
+        char dst_wkt = None, GDALResampleAlg eResampleAlg = GRA_NearestNeighbour, 
+        double WarpMemoryLimit = 0.0, 
+        double maxerror = 0.0, GDALProgressFunc callback = None, 
+        void callback_data = None) -> CPLErr
+        '''
+        #gdal.ReprojectImage(self.dataset,self.dataset,self.DEFAULT_PROJ,self.LATLONG_PROJ)
+        #subprocess.call(["gdalwarp","-t_srs","+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs","out.tiff","out1.tiff"])
+        #subprocess.call("gdalwarp","-t_srs \"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs\" out.tiff out1.tiff")
 
         
 if __name__ == '__main__':
