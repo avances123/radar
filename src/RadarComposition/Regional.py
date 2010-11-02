@@ -147,6 +147,7 @@ class Regional(Radar):  # Hereda de Radar
         # create the output image
         driver = gdal.GetDriverByName("GTiff")
         dsOut = driver.Create('out.tiff', self.xsize, self.ysize, 1, self.band.DataType)
+        projdsOut = driver.Create('out1.tiff', self.xsize, self.ysize, 1, self.band.DataType)
         bandOut = dsOut.GetRasterBand(1)
         #self.data = self.band.ReadAsArray(0,0,self.xsize, self.ysize)
         bandOut.WriteArray(self.data, 0,0)
@@ -173,12 +174,14 @@ class Regional(Radar):  # Hereda de Radar
         #gdal.ReprojectImage(self.dataset,self.dataset,self.DEFAULT_PROJ,self.LATLONG_PROJ)
         #subprocess.call(["gdalwarp","-t_srs","+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs","out.tiff","out1.tiff"])
         #subprocess.call("gdalwarp","-t_srs \"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs\" out.tiff out1.tiff")
+	#err = gdal.ReprojectImage(dsOut,dsOut,self.projection,self.LATLONG_PROJ_WKT)
+	err = gdal.ReprojectImage(dsOut,projdsOut,self.projection,self.LATLONG_PROJ_WKT)
 
         
 if __name__ == '__main__':
     from Retriever import Retriever
     retriever = Retriever()
-    image_dict = retriever.downloadImages(['ba'])
+    image_dict = retriever.downloadImages(['ss'])
     for i in image_dict.iterkeys():
         radar = Regional(image_dict[i],i) #(imagepath, region)
         #print "Creado radar regional: " + radar.imagepath + ' Region: ' + radar.region
